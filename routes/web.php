@@ -8,9 +8,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('input-form',[DataController::class,'inputForm']);
+Route::get('input-form',[DataController::class,'inputForm'])->name('inputForm');
 Route::post('store-data',[DataController::class,'storeData']);
-Route::get('display-data',[DataController::class,'displayData']);
+Route::get('display-data',[DataController::class,'displayData'])->name('displayData');
 
 Route::post('update-data/{id}',[DataController::class,'updateData'])->name('update-data');
 Route::post('delete-data/{id}',[DataController::class,'deleteData'])->name('delete-data');

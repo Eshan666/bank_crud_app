@@ -42,7 +42,7 @@
   <div class="row">
 
   @foreach($employees as $employee)
-  <div class="col-sm">
+  <div class="col-sm my-2">
     <div class="card" style="width: 18rem;">
   
   <div class="card-body">
