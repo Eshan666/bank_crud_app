@@ -25,7 +25,11 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('displayData')}}">View All Employees</a>
         </li>
-       
+
+         <li class="nav-item">
+          <h5>Welcome, {{ Auth::user()->name }}</h5>
+        </li>
+
            
           </ul>
         </li>
