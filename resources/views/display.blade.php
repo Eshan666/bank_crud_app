@@ -37,15 +37,26 @@
 <x-alert text="Updated!" detail="The employee has been updated!" class="info"></x-alert>
 @endif
 
+@if(session('bulkDelete'))
+<x-alert text="Failed" detail="No Item selected!" class="warning"></x-alert>
+@endif
+
+ <form action="{{ route('bulkDelete') }}" method="POST">
+    @csrf
+    <button name="bulkDelete"class="btn btn-danger"> Delete</button>
 
 <div class="container">
   <div class="row">
+
+ 
+  
 
   @foreach($employees as $employee)
   <div class="col-sm my-2">
     <div class="card" style="width: 18rem;">
   
   <div class="card-body">
+    <input type="checkbox" name="ids[]" value="{{ $employee->id }}"/>
     <h5 class="card-title">Name : {{$employee->name}}</h5>
     <p class="card-text">Age: {{$employee->age}}</p>
     <p class="card-text">Salry: {{$employee->salary}}</p>
@@ -61,8 +72,13 @@
     </form>
   </div>
 </div>
+
     </div>
+    
   @endforeach
+ 
+</form>
+  {{$employees->links()}}
 
   </div>
 </div>

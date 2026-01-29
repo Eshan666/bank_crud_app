@@ -40,7 +40,7 @@ public function storeData(Request $request){
 
     public function displayData(){
 
-    $employees = Employee::all();
+    $employees = Employee::paginate(8);
 
     // $username = session('username');
     // $email = session('email');
@@ -83,6 +83,16 @@ public function storeData(Request $request){
 
     return redirect('display-data')->with('updated',true);
 
+    }
+
+
+    public function bulkDelete(Request $request){
+        $ids = $request->ids;
+        if(!$request->ids){
+            return redirect()->back();
+        }
+        Employee::whereIn('id', $ids)->delete();
+        return redirect('/display-data');
     }
 
 }

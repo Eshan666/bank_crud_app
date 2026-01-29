@@ -15,4 +15,5 @@ Route::get('display-data',[DataController::class,'displayData'])->name('displayD
 Route::post('update-data/{id}',[DataController::class,'updateData'])->name('update-data');
 Route::post('delete-data/{id}',[DataController::class,'deleteData'])->name('delete-data');
 Route::get('updateForm/{id}',[DataController::class,'updateForm'])->name('update-form');
+Route::post('bulkDelete',[DataController::class,'bulkDelete'])->name('bulkDelete');
 
